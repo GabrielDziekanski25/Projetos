@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CDN do Tailwind CSS com configuração personalizada -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuração personalizada do Tailwind via CDN
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        sm: '480px',  // Pequenas telas (480px)
+                        md: '768px',  // Médias telas (768px)
+                        lg: '976px',  // Grandes telas (976px)
+                        xl: '1440px'  // Extra grandes telas (1440px)
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'], // Fonte Poppins
+                    },
+                    letterSpacing: {
+                        widest: '.3em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonte Poppins do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <title>John Doe - Company_Dois</title>
+
+    <style>
+        #hero {
+            background-image: url('images/desktop/image-hero.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+            @media(max-width: 576px){
+                #hero {
+                background-image: url('images/mobile/image-hero.jpg');
+                background-position: center;
+            }
+            
+        }
+        
+        /*Hamburguer Menu*/
+            .hamburguer {
+                cursor: pointer;
+                width: 24px;
+                height: 24px;
+                transition: all 0.25s;
+                position: relative;
+            }
+            .hamburguer-top,
+            .hamburguer-middle,
+            .hamburguer-bottom {
+                position: absolute;
+                width: 24px;
+                height: 2px;
+                top: 0;
+                left: 0;
+                background: #fff;
+                transform: rotate(0);
+                transition: all 0.5s;
+            }
+            .hamburguer-middle {
+                transform: translateY(7px);
+            }
+            .hamburguer-bottom {
+                transform: translateY(14px);
+            }
+            .open {
+                transform: rotate(90deg);
+            }
+            .open .hamburguer-top {
+                transform: rotate(45deg) translateY(6px) translateX(6px);
+            }
+            .open .hamburguer-middle {
+                display: none;
+            }
+            .open .hamburguer-bottom {
+                transform: rotate(-45deg) translateY(6px) translateX(-6px);
+            }
+    </style>
+</head>
+<body>
+    <!--Hero Section-->
+    <section id="hero">
+        <!--Hero Container-->
+        <div class="container max-w-6xl mx-auto px-6 py-12">
+            <!--Nav Container-->
+            <nav class="flex items-center justify-between font-bold text-white">
+                <!--Logo-->
+                <img src="images/logo.svg" alt="logo">
+                <!--Menu-->
+                <div class="hidden h-10 font-poppins md:flex md:space-x-8">
+                    <div class="group">
+                        <a href="#">Menu 1</a>
+                        <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                    </div>
+
+                    <div class="group">
+                        <a href="#">Menu 2</a>
+                        <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                    </div>
+
+                    <div class="group">
+                        <a href="#">Menu 3</a>
+                        <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                    </div>
+
+                    <div class="group">
+                        <a href="#">Menu 4</a>
+                        <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                    </div>
+
+                    <div class="group">
+                        <a href="#">Menu 5</a>
+                        <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                    </div>
+                </div>
+                <!--Hamburguer Button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" type="button" class="z-40 block hamburguer md:hidden focus:outline-none">
+                        <span class="hamburguer-top"></span>
+                        <span class="hamburguer-middle"></span>
+                        <span class="hamburguer-bottom"></span>
+                    </button>
+                </div>
+
+            </nav>
+            <!--Mobile Menu-->
+            <div id="menu" class="absolute top-0 bottom-0 left-0 hidden flex-col self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg text-white uppercase bg-black">
+                <a href="#" class="hover:text-pink-500">Menu 1</a>
+                <a href="#" class="hover:text-pink-500">Menu 2</a>
+                <a href="#" class="hover:text-pink-500">Menu 3</a>
+                <a href="#" class="hover:text-pink-500">Menu 4</a>
+                <a href="#" class="hover:text-pink-500">Menu 5</a>
+            </div>
+
+            <div class="max-w-lg mt-32 mb-32 p-4 font-sans text-4xl text-white uppercase border-2 md:p-10 md:m-32 md:mx-0 md:text-6xl">
+                Your Text Here
+            </div>
+        </div>
+    </section>
+    <!--Feature Section-->
+    <section id="feature">
+        <!--Feature Container-->
+        <div class="relative container flex flex-col max-w-6xl mx-auto my-32 px-6 text-gray-900 md:flex-row md:px-0">
+            <img src="images/desktop/image-interactive.jpg" alt="interactive">
+
+            <!--Text Container-->
+            <div class="top-48 pr-0 bg-white md:absolute md:right-0 md:py-20 md:pl-20">
+                <h2 class="max-w-lg mt-10 mb-6 font-sans text-4xl text-center text-gray-900 uppercase md: text-5xl md:mt-0 md:text-left">
+                    Main Title 1
+                </h2>
+                <p class="max-w-md text-center md:text-left">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam laudantium vero a quae unde, facere nihil ducimus excepturi esse praesentium obcaecati, doloribus porro, ab cum beatae repudiandae iure vitae nostrum.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!--Creations Section-->
+    <section id="creations">
+        <!--Creations Container-->
+        <div class="container max-w-6xl mx-auto my-32 px-6 text-gray-900 md:px-0">
+            <!--Creations Header-->
+            <div class="flex justify-center mb-20 md:justify-between">
+                <h2 class="text-4xl text-center uppercase md:text-left md:text-5xl">Main Title 2</h2>
+
+                <button class="hidden px-10 py-2 my-0 font-bold tracking-widest uppercase border-2 border-black font-poppins hover:bg-black hover:text-white md:block">
+                    See All
+                </button>
+            </div>
+            <!--Items Container-->
+            <div class="flex flex-col justify-between w-full space-y-6 text-2xl text-white uppercase md:flex-row md:space-y-0 md:space-x-8">
+                <!--Item 1-->
+                <div class="group relative overflow-hidden md:w-1/4">
+                    <!--Desktop Image-->
+                    <img src="images/desktop/image-deep-earth.jpg" alt="deep-earth" class="hidden w-full duration-200 md:block group-hover:scale-110">
+                    <!--Mobile Image-->
+                    <img src="images/mobile/image-deep-earth.jpg" alt="deep-earth" class="w-full md:hidden">
+                    <!--Item Gradient-->
+                    <div class="absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-b
+                    from-transparent to-gray-900 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-70"></div>
+                    <!--Item Text-->
+                    <h5 class="absolute px-6 duration-200 w-52 bottom-4 
+                    md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">Card 1</h5>
+                </div>
+
+                <!--Item 2-->
+                <div class="group relative overflow-hidden md:w-1/4">
+                    <!--Desktop Image-->
+                    <img src="images/desktop/image-night-arcade.jpg" alt="night-arcade" class="hidden w-full duration-200 md:block group-hover:scale-110">
+                    <!--Mobile Image-->
+                    <img src="images/mobile/image-night-arcade.jpg" alt="night-arcade" class="w-full md:hidden">
+                    <!--Item Gradient-->
+                    <div class="absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-b
+                    from-transparent to-gray-900 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-70"></div>
+                    <!--Item Text-->
+                    <h5 class="absolute px-6 duration-200 w-52 bottom-4 
+                    md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">Card 2</h5>
+                </div>
+
+                <!--Item 3-->
+                <div class="group relative overflow-hidden md:w-1/4">
+                    <!--Desktop Image-->
+                    <img src="images/desktop/image-soccer-team.jpg" alt="image-soccer-team" class="hidden w-full duration-200 md:block group-hover:scale-110">
+                    <!--Mobile Image-->
+                    <img src="images/mobile/image-soccer-team.jpg" alt="image-soccer-team" class="w-full md:hidden">
+                    <!--Item Gradient-->
+                    <div class="absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-b
+                    from-transparent to-gray-900 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-70"></div>
+                    <!--Item Text-->
+                    <h5 class="absolute px-6 duration-200 w-52 bottom-4 
+                    md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">Card 3</h5>
+                </div>
+
+                <!--Item 4-->
+                <div class="group relative overflow-hidden md:w-1/4">
+                    <!--Desktop Image-->
+                    <img src="images/desktop/image-grid.jpg" alt="grid" class="hidden w-full duration-200 md:block group-hover:scale-110">
+                    <!--Mobile Image-->
+                    <img src="images/mobile/image-grid.jpg" alt="grid" class="w-full md:hidden">
+                    <!--Item Gradient-->
+                    <div class="absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-b
+                    from-transparent to-gray-900 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-70"></div>
+                    <!--Item Text-->
+                    <h5 class="absolute px-6 duration-200 w-52 bottom-4 
+                    md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">Card 4</h5>
+                </div>
+            </div>
+            <!--Item Container 2-->
+            <div class="flex flex-col justify-between w-full space-y-6 text-2xl text-white uppercase md:flex-row md:space-y-0 md:space-x-8 mt-10">
+                <!--Item 5-->
+                <div class="group relative overflow-hidden md:w-1/4">
+                    <!--Desktop Image-->
+                    <img src="images/desktop/image-from-above.jpg" alt="image-from-above" class="hidden w-full duration-200 md:block group-hover:scale-110">
+                    <!--Mobile Image-->
+                    <img src="images/mobile/image-from-above.jpg" alt="image-from-above" class="w-full md:hidden">
+                    <!--Item Gradient-->
+                    <div class="absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-b
+                    from-transparent to-gray-900 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-70"></div>
+                    <!--Item Text-->
+                    <h5 class="absolute px-6 duration-200 w-52 bottom-4 
+                    md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">Card 5</h5>
+                </div>
+
+                <!--Item 6-->
+                <div class="group relative overflow-hidden md:w-1/4">
+                    <!--Desktop Image-->
+                    <img src="images/desktop/image-pocket-borealis.jpg" alt="image-pocket-borealis" class="hidden w-full duration-200 md:block group-hover:scale-110">
+                    <!--Mobile Image-->
+                    <img src="images/mobile/image-pocket-borealis.jpg" alt="image-pocket-borealis" class="w-full md:hidden">
+                    <!--Item Gradient-->
+                    <div class="absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-b
+                    from-transparent to-gray-900 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-70"></div>
+                    <!--Item Text-->
+                    <h5 class="absolute px-6 duration-200 w-52 bottom-4 
+                    md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">Card 6</h5>
+                </div>
+
+                <!--Item 7-->
+                <div class="group relative overflow-hidden md:w-1/4">
+                    <!--Desktop Image-->
+                    <img src="images/desktop/image-curiosity.jpg" alt="image-curiosity" class="hidden w-full duration-200 md:block group-hover:scale-110">
+                    <!--Mobile Image-->
+                    <img src="images/mobile/image-curiosity.jpg" alt="image-curiosity" class="w-full md:hidden">
+                    <!--Item Gradient-->
+                    <div class="absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-b
+                    from-transparent to-gray-900 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-70"></div>
+                    <!--Item Text-->
+                    <h5 class="absolute px-6 duration-200 w-52 bottom-4 
+                    md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">Card 7</h5>
+                </div>
+
+                <!--Item 8-->
+                <div class="group relative overflow-hidden md:w-1/4">
+                    <!--Desktop Image-->
+                    <img src="images/desktop/image-fisheye.jpg" alt="image-fisheye" class="hidden w-full duration-200 md:block group-hover:scale-110">
+                    <!--Mobile Image-->
+                    <img src="images/mobile/image-fisheye.jpg" alt="image-fisheye" class="w-full md:hidden">
+                    <!--Item Gradient-->
+                    <div class="absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-b
+                    from-transparent to-gray-900 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-70"></div>
+                    <!--Item Text-->
+                    <h5 class="absolute px-6 duration-200 w-52 bottom-4 
+                    md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">Card 8</h5>
+                </div>
+            </div>
+            <!--Bottom Button Container-->
+            <div class="flex justify-center mt-10 md:hidden">
+                <button class="px-10 py-2 my-0 font-bold tracking-widest uppercase border-2 border-black font-poppins hover:bg-black hover:text-white md:block w-full md:hidden">See All</button>
+            </div>
+        </div>
+    </section>
+    <!--Footer-->
+    <footer class="bg-black">
+        <!--Container-->
+        <div class="container max-w-6xl py-10 mx-auto">
+            <!--Foooter Flex Container-->
+            <div class="flex flex-col items-center mb-8 space-y-6 md:flex-row md:space-y-0 md:justify-between md:items-start">
+                <!--Menu And Logo-->
+                <div class="flex flex-col items-center space-y-8 md:items-start md:space-y-4">
+                    <div class="h-8">
+                        <img src="images/logo.svg" alt="logo" class="w-44 md:ml-3">
+                    </div>
+                    <!--Menu-->
+                    <div class="flex flex-col items-center space-y-4 font-bold text-white md:flex-row md:space-y-0 md:space-x-6 md:ml-3">
+                        <!--Item 1-->
+                        <div class="h-10 group">
+                            <a href="#">Menu 1</a>
+                            <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                        </div>
+
+                        <!--Item 2-->
+                        <div class="h-10 group">
+                            <a href="#">Menu 2</a>
+                            <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                        </div>
+
+                        <!--Item 3-->
+                        <div class="h-10 group">
+                            <a href="#">Menu 3</a>
+                            <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                        </div>
+
+                        <!--Item 4-->
+                        <div class="h-10 group">
+                            <a href="#">Menu 4</a>
+                            <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                        </div>
+
+                        <!--Item 5-->
+                        <div class="h-10 group">
+                            <a href="#">Menu 5</a>
+                            <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--Social-->
+                <div class="flex flex-col items-start justify-between space-y-4 text-gray-500">
+                    <!--Icons Container-->
+                    <div class="flex items-center justify-center mx-auto space-x-4 md:justify-end md:mx-0">
+                        <!--Icon 1-->
+                        <div class="h-8 group">
+                            <a href="#">
+                                <img src="images/icon-facebook.svg" alt="facebook">
+                            </a>
+                        </div>
+
+                        <!--Icon 2-->
+                        <div class="h-8 group">
+                            <a href="#">
+                                <img src="images/icon-twitter.svg" alt="twitter">
+                            </a>
+                        </div>
+
+                        <!--Icon 3-->
+                        <div class="h-8 group">
+                            <a href="#">
+                                <img src="images/icon-pinterest.svg" alt="pinterest">
+                            </a>
+                        </div>
+
+                        <!--Icon 4-->
+                        <div class="h-8 group">
+                            <a href="#">
+                                <img src="images/icon-instagram.svg" alt="instagram">
+                            </a>
+                        </div>
+                    </div>
+                    <!--Copy-->
+                    <div class="font-bold">
+                        &copy; 2025 John Doe Company_Dois. All Rights Reserved
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
